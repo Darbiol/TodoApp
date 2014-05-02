@@ -1,0 +1,34 @@
+* {
+	padding : 0;
+	margin: 0;
+}
+
+input {
+	border: 1px solid #C6C6C6;
+}
+
+body {
+	background-color: #E8E8E8;
+}
+
+span > input {
+	height: 60px;
+	width : 400px;
+	padding : 10px 20px;
+	font-size: 32px;
+}
+
+.non-list {
+	list-style: none;
+	/*display: block;*/
+}
+
+.list-item{
+	font-size: 30px;
+	background-color: #FFF;
+	padding : 5px 20px;
+	width : 400px;
+	border: 1px solid #C6C6C6;
+	/*display: block;*/
+
+}
