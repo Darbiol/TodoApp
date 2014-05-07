@@ -10,14 +10,57 @@ input {
 body {
 	background-color: #E8E8E8;
 }
+#todo-add {
+	width : 400px;
+}
+
+#selectAll {
+	background-color: #FFF;
+	height : 60px;
+	padding-left : 7px;
+	font-size: 30px;
+	padding-right: 8px;
+	display : inline-block;
+	float ; left ;
+	border: 1px solid #C6C6C6;
+	padding-top : 9px;
+	color : #C6C6C6;
+}
+
+a#selectAll:hover{
+	text-decoration: none;
+}
 
 span > input {
 	height: 60px;
-	width : 400px;
-	padding : 10px 20px;
-	font-size: 32px;
+	width : 358px;
+	padding : 10px 12px;
+	font-size: 30px;
+	display : inline-block;
+	float : right;
 }
 
+a#checker{
+	text-decoration: none;
+	color : #DEDEDE;
+}
+a#checker:hover{
+	text-decoration: none;
+	color : #DEDEDE;
+}
+
+li.isDone > a#checker{
+	color : #8AE62E !important;
+}
+
+li.isDone > span {
+	text-decoration: line-through;
+	color : #C4C4C4;
+}
+
+.checkbox{
+	display : inline-block !important;
+}
 .non-list {
 	list-style: none;
 	/*display: block;*/
@@ -26,9 +69,38 @@ span > input {
 .list-item{
 	font-size: 30px;
 	background-color: #FFF;
-	padding : 5px 20px;
+	padding : 0px 5px 0px 7px;
 	width : 400px;
 	border: 1px solid #C6C6C6;
 	/*display: block;*/
-
 }
+
+.list-item > span {
+	padding-left : 10px;
+	border-left: 1px solid #C6C6C6;
+	width : 320px;
+	display : inline-block;
+}
+
+.del{
+	text-decoration: none;
+	color : #FFF;
+	background-color: #C6C6C6;
+	font-size: 18px;
+	padding : 0px 6px 3px 6px;
+	border-radius: 12px;
+	float: right;
+	margin-top : 8px;
+}
+
+.del:hover {
+	text-decoration: none;
+	color : #FFF;
+}
+
+#editMode{
+	padding : 0px 10px;
+	width : 324px;
+	height : 42px;
+}
+/**/

@@ -28,17 +28,20 @@
 	<script src="js/app.js" type="text/javascript" charset="utf-8" async defer></script>
 
 <script id="input-todo" src="" type="text/template" charset="utf-8">
-	<input id="todoInput" type="text" name="" value="" placeholder="WHat needs to be done">
+	<a href="#" id='selectAll'>✔</a><input id="todoInput" type="text" name="" value="" placeholder="WHat needs to be done">
 </script>
 
 <script id="todoList" src="" type="text/template" charset="utf-8">
-	<span>this is your mother</span>
+	<a href="#" id='checker'>✔</a>
+	<span><%= todo %></span>
+	<input type="hidden" id='editMode'>
+	<a href="#" class="del" >x</a>
 </script>
 
 <script id="todoLayout" src="" type="text/template" charset="utf-8">
 
 	<div id="todo-add" ></div>
-	<ul id="todo-list" class="non-list"></ul>
+	<div id="todo-list" class="non-list"></div>
 
 </script>
 
