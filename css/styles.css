@@ -31,7 +31,7 @@ a#selectAll:hover{
 	text-decoration: none;
 }
 
-span > input {
+input#todoInput {
 	height: 60px;
 	width : 358px;
 	padding : 10px 12px;
@@ -103,4 +103,42 @@ li.isDone > span {
 	width : 324px;
 	height : 42px;
 }
-/**/
+
+.isSelected{
+	color : #8AE62E !important;
+}
+
+.statusContainer{
+	background-color: #F9F9DF;
+	height : 40px;
+	width : 360px;
+	display: block;
+	margin-left: 20px;
+	margin-top : -10px;
+	padding-top: 10px;
+	padding-left: 5px;
+}
+a#deleteAll {
+	float : right;
+	margin-right: 10px;
+	text-decoration: none;
+	font-size: 12px;
+	padding : 3px 7px;
+	background-color: #C6C6BA;
+	border-radius: 10px;
+	color : #FFF;
+}
+
+a#deleteAll:hover {
+	text-decoration: none;
+	background-color : #9E9E95;
+	color : #000;
+}
+
+#items-left {
+	font-weight: bold;
+}
+
+.hide{
+	display : none;
+}

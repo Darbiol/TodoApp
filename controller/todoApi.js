@@ -33,8 +33,8 @@ exports.addTodo = function ( req, res ){
 }
 
 exports.updateTodo = function ( req, res ){
-	console.log( req.body );
-	todoModel.update( {'_id' : req.body._id}, {
+	console.log( req.params );
+	todoModel.update( {'_id' : req.params.id}, {
 		'todo' : req.body.todo,
 		'isFinished' : req.body.isFinished
 	}, function ( err, doc){
@@ -43,7 +43,7 @@ exports.updateTodo = function ( req, res ){
 			console.log( err );
 			res.send( 500, err );
 		}else{
-			res.send( 200, doc );
+			res.send( 200, { success : doc } )
 		}
 	} );
 
@@ -57,7 +57,8 @@ exports.removeTodo = function ( req, res){
 			console.log( err );
 			res.send( 500, err );
 		}else{
-			res.send( 200, doc )
+			// console.log(doc)
+			res.send( 200, { success : doc } )
 		}
 	} )
 
