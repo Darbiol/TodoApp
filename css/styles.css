@@ -80,6 +80,7 @@ li.isDone > span {
 	border-left: 1px solid #C6C6C6;
 	width : 320px;
 	display : inline-block;
+	word-wrap : break-word;
 }
 
 .del{

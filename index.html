@@ -19,13 +19,14 @@
 		<p>This is my static type</p>
 	</div>
 
-
-	<script src="js/vendor/jquery.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/vendor/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/vendor/underscore.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/vendor/backbone.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/vendor/backbone.marionette.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/app.js" type="text/javascript" charset="utf-8" async defer></script>
+	<script data-main='js/main_app.js' src='js/vendor/require.js'></script>
+	<script src='js/require_main.js'></script>
+	 <!-- <script src="js/vendor/jquery.js" type="text/javascript" charset="utf-8"></script>
+	// <script src="js/vendor/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	// <script src="js/vendor/underscore.js" type="text/javascript" charset="utf-8"></script>
+	// <script src="js/vendor/backbone.js" type="text/javascript" charset="utf-8"></script>
+	// <script src="js/vendor/backbone.marionette.js" type="text/javascript" charset="utf-8"></script>
+	// <script src="js/app.js" type="text/javascript" charset="utf-8" async defer></script> -->
 
 <script id="input-todo" src="" type="text/template" charset="utf-8">
 </script>
@@ -38,7 +39,8 @@
 </script>
 
 <script id="todoLayout" src="" type="text/template" charset="utf-8">
-
+	<div id="todo-nav">
+	</div>
 	<div id="todo-list" class="non-list"></div>
 
 </script>
