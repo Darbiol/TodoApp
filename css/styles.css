@@ -43,6 +43,8 @@ input#todoInput {
 a#checker{
 	text-decoration: none;
 	color : #DEDEDE;
+	padding-right: 6px;
+	padding-left : 3px;
 }
 a#checker:hover{
 	text-decoration: none;
@@ -56,6 +58,10 @@ li.isDone > a#checker{
 li.isDone > span {
 	text-decoration: line-through;
 	color : #C4C4C4;
+}
+
+#todo-list li:hover{
+	background-color: #FFFFCC;
 }
 
 .checkbox{
@@ -142,4 +148,32 @@ a#deleteAll:hover {
 
 .hide{
 	display : none;
+}
+
+
+/* ======  NAVIGATION BAR   */
+ul#navigation {
+	list-style: none;
+}
+
+ul#navigation li {
+	display : inline;
+	margin : ;
+}
+
+ul#navigation li a {
+	padding : 4px 15px;
+	display : inline-block;
+	text-decoration: none;
+	color : #FFF;
+	background-color: #808080;
+	margin : 0px 10px;
+	text-align: center;
+	width : 80px;
+	border-radius: 15px;
+}
+
+ul#navigation li a:hover, ul#navigation li a.active {
+	background-color: #FFF;
+	color : #000;
 }

@@ -1,0 +1,4 @@
+<a href="#" id='checker'>✔</a>
+<span>{{=it.todo }}</span>
+<input type="hidden" id='editMode' value="<%= todo %>">
+<a href="#" class="del" >x</a>

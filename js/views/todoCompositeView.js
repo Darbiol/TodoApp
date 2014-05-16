@@ -2,11 +2,13 @@ define( function ( require ) {
 
 	var Marionette = require( 'marionette' );
 	var TodoItem = require( './todoView' );
-	// var compositTemplate = require( './template/todoComposite' )
+	var todoCompositeTemplate = require( 'doT!template/todoCompositeView' )
+	var dotCompiler = require( 'doTCompiler' );
+	var todoModel_req = require( 'models/todoModel' )
 
-	var todoList = Marionette.CompositeView.extend({
+	return Marionette.CompositeView.extend({
 		tagName : 'div',
-		template : '#todoComposite',
+		template : todoCompositeTemplate,//'#todoComposite',
 		itemView : TodoItem,
 		itemViewContainer : 'ul',
 		ui : {
@@ -23,15 +25,13 @@ define( function ( require ) {
 		},
 
 		'initialize' : function () {
+			// console.log( this.template );
 			this.listenTo( this.collection, 'change', this.checkCollection );
 			this.listenTo( this.collection, 'sync', this.updateStatus );
 			this.listenTo( this.collection, 'remove', this.updateStatus )
-			console.log(this)
+
 			this.collection.fetch({
 				success : function(){
-					// console.log(self.model)
-
-
 					var count = this.collection.where({isFinished : true})
 					if( count.length === this.collection.length ){
 						this.toggleSelectAll();
@@ -39,7 +39,6 @@ define( function ( require ) {
 					}else if( count.length >0){
 						this.updateStatus();
 					}else{
-
 					}
 				}.bind( this ),
 				error : function(){
@@ -48,7 +47,7 @@ define( function ( require ) {
 			});
 		},
 		keyCode : function( e ) {
-			// console.log(this)
+
 			if( e.keyCode === 13 ){
 				var todoVal = this.ui.todoInput.val();
 
@@ -64,7 +63,7 @@ define( function ( require ) {
 		},
 		addTodo : function( val ){
 			var todoInput = val;
-			var todoModel = new TodoApp.todoModel( {'todo' : val, 'isFinished' : false});
+			var todoModel = new todoModel_req( {'todo' : val, 'isFinished' : false});
 			todoModel.save({}, {
 				success : function(){
 					this.collection.add(todoModel);
@@ -81,22 +80,18 @@ define( function ( require ) {
 		},
 		flagAll : function ( e ){
 			e.preventDefault();
-			console.log(this.collection);
 			this.ui.selectAll.toggleClass( 'isSelected' );
 			var selectedState = this.ui.selectAll.hasClass( 'isSelected' );
 
 			this.collection.each( function ( model, index){
 				model.save( { 'isFinished' : selectedState } );
 			} )
-			console.log(this.collection)
 		},
 		toggleSelectAll : function (){
-			console.log('please update selectAll');
 			this.ui.selectAll.toggleClass('isSelected');
 			return 0;
 		},
 		checkCollection : function(){
-			console.log('check')
 			var count = this.collection.where({'isFinished' : true}).length
 			if( count === this.collection.length ){
 				if(this.ui.selectAll.hasClass('isSelected')){
@@ -140,5 +135,5 @@ define( function ( require ) {
 		}
 	});
 
-	return todoList;
+	//return todoList;
 } );

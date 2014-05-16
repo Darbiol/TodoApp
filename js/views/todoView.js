@@ -1,11 +1,13 @@
 define( function ( require ){
 
 	var Marionette = require( 'marionette' );
+	var dotCompiler = require( 'doTCompiler' );
+	var todoItemTemplate = require( 'doT!template/todoItemView' );
 
-	return TodoItem = Marionette.ItemView.extend({
+	return Marionette.ItemView.extend({
 			tagName : 'li',
 			className : 'list-item',
-			template : '#todoList',
+			template : todoItemTemplate,  //'#todoList',
 			ui : {
 				'todoDelete' : 'a.del',
 				'finished' : 'a#checker',
@@ -41,7 +43,6 @@ define( function ( require ){
 			},
 			toggleDone : function( e ){
 				e.preventDefault();
-				console.log(this)
 				var currentState = this.model.get( 'isFinished' );
 				this.model.save( { 'isFinished' : !currentState }, {
 					dataType : 'text',
@@ -74,7 +75,6 @@ define( function ( require ){
 					//update
 					this.updateTodo( newContent );
 				}
-				console.log(this)
 
 			},
 			catchEnter : function ( e ){
@@ -102,7 +102,6 @@ define( function ( require ){
 				} )
 			},
 			updateDone : function(){
-				console.log('finished');
 				this.$el.toggleClass( 'isDone' );
 			},
 			updateText : function(){
