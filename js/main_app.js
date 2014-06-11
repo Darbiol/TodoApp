@@ -1,7 +1,9 @@
-define( function ( require ) {
+( function () {
+	define( function ( require ) {
 
-	var TodoApp = require( 'app' );
+		var TodoApp = require( 'app' );
 
-	TodoApp.start();
+		TodoApp.start();
 
-} );
+	} );
+} )();

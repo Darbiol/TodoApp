@@ -3,11 +3,12 @@ define( function ( require ) {
 
 	var todoApp = require( 'app' );
 
-	todoApp.module( 'Todo.Controller' , function ( Controller ) {
+	todoApp.module( 'Todo.NavController' , function ( Controller ) {
 
 		todo.Controller = {
-			Todo.ShowAll : function () {
 
+			'selectTab' : function ( el ) {
+				el.
 			}
 		}
 

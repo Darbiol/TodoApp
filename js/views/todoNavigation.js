@@ -2,6 +2,7 @@ define( function ( require ) {
 
 	var Marionette = require( 'marionette' );
 	var todoNavigationTemplate = require( 'doT!template/todoNavigation' );
+	var Vent = require( 'vent' );
 
 	return Marionette.ItemView.extend( {
 		template :todoNavigationTemplate,
@@ -20,14 +21,17 @@ define( function ( require ) {
 		allTodo : function( e ){
 			e.preventDefault();
 			this.toggleSiblings( e );
+			Vent.trigger( 'todo:all' )
 		},
 		itemTodo : function( e ){
 			e.preventDefault();
 			this.toggleSiblings( e );
+			Vent.trigger( 'todo:todos' )
 		},
 		doneTodo : function( e ){
 			e.preventDefault();
 			this.toggleSiblings( e );
+			Vent.trigger( 'todo:done' )
 		},
 		toggleSiblings : function( event ){
 			$( event.target ).addClass( 'active' );

@@ -5,8 +5,10 @@ define( function ( require ) {
 	var todoCollection = require( 'collection/todoCollection' );
 	var todoLayout = require( 'views/todoLayoutView' );
 	var todoComposite = require( 'views/todoCompositeView' );
-	var todoNavigation = require( 'views/todoNavigation' )
-
+	var todoNavigation = require( 'views/todoNavigation' );
+	var Vent = require( 'vent' );
+	var routes = require( 'todoRoutes' );
+	// var views = require( 'views/views' )
 	//main app
 	var TodoApp = new Marionette.Application();
 
@@ -28,28 +30,27 @@ define( function ( require ) {
 
 
 	TodoApp.on( 'initialize:after', function(){
+		routes();
+
+
 		console.log( 'app is initialized' );
 
 		if( Backbone.history ){
 			Backbone.history.start();
 
 			if( this.getCurrentRoute() === '' ){
-				TodoApp.trigger('todo:all')
+				console.log( 'history' );
+				Vent.trigger( 'todo:all' );
 			}
 		}
 
+		// var todosCollection = new todoCollection();
+		// var todos = new todoComposite( { collection : todosCollection } )
+		// var layout = new todoLayout();//layout
 
-
-		var todosCollection = new todoCollection();
-
-		var todos = new todoComposite( { collection : todosCollection } )
-
-		var layout = new todoLayout();//layout
-
-
-		TodoApp.mainRegion.show( layout );
-		layout.navTodo.show( new todoNavigation );
-		layout.listTodo.show( todos );
+		// TodoApp.mainRegion.show( layout );
+		// layout.navTodo.show( new todoNavigation );
+		// layout.listTodo.show( todos );
 
 	} )
 
